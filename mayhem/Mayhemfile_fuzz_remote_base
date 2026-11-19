@@ -1,0 +1,9 @@
+project: savantenvs/esphome
+target: fuzz_remote_base
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_remote_base/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/out/bin/fuzz_remote_base
+    libfuzzer: true
+    timeout: 10

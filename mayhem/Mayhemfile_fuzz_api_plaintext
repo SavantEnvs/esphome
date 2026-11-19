@@ -1,0 +1,9 @@
+project: savantenvs/esphome
+target: fuzz_api_plaintext
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_api_plaintext/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/out/bin/fuzz_api_plaintext
+    libfuzzer: true
+    timeout: 10

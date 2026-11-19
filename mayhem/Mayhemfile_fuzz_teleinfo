@@ -1,0 +1,9 @@
+project: savantenvs/esphome
+target: fuzz_teleinfo
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_teleinfo/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/out/bin/fuzz_teleinfo
+    libfuzzer: true
+    timeout: 10

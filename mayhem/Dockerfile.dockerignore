@@ -1,0 +1,21 @@
+# Dockerfile-specific ignore file (BuildKit uses it instead of the repo-root .dockerignore when
+# building with -f mayhem/Dockerfile). Upstream's root .dockerignore drops .git/ and tests/, which
+# the commit image needs: the full history, and tests/components/ for the C++ unit-test suite.
+
+# ── Build outputs / local cruft ──────────────────────────────────────────────
+# Keep build artifacts out of the context — the COPY boundary is what separates
+# source from artifacts. build.sh produces its outputs under /mayhem at build time.
+# Adjust the patterns per project.
+build/
+out/
+*.o
+*.a
+*.so
+*.dylib
+**/__pycache__/
+
+# ── Editor / OS noise ────────────────────────────────────────────────────────
+.DS_Store
+*.swp
+*~
+mayhem/out/
